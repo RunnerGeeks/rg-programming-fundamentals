@@ -5,38 +5,38 @@
 // 3. Modifique el algoritmo para buscar cualquieer libro disponible pero si detecta que no es del siglo XX imprima
 //    'Descartando libro muy viejo'
 
-// Declaración de una interfaz para los libros
-interface Libro {
-    titulo: string;
-    autor: string;
-    publicado: number;
-    disponible: boolean;
+// Declaración de un tipo para los libros
+type Book = {
+    title: string;
+    author: string;
+    published: number;
+    available: boolean;
 }
 
 // Declaración de una variable para almacenar los libros
-let libros: Libro[] = [
-    {titulo: 'Cien años de soledad', autor: 'Gabriel García Márquez', publicado: 1967, disponible: true},
-    {titulo: '1984', autor: 'George Orwell', publicado: 1949, disponible: false},
-    {titulo: 'Moby-Dick', autor: 'Herman Melville', publicado: 1851, disponible: true},
-    {titulo: 'Don Quijote de la Mancha', autor: 'Miguel de Cervantes', publicado: 1605, disponible: true},
-    {titulo: 'Crimen y castigo', autor: 'Fyodor Dostoevsky', publicado: 1866, disponible: false}
+let books: Book[] = [
+    {title: 'Cien años de soledad', author: 'Gabriel García Márquez', published: 1967, available: true},
+    {title: '1984', author: 'George Orwell', published: 1949, available: false},
+    {title: 'Moby-Dick', author: 'Herman Melville', published: 1851, available: true},
+    {title: 'Don Quijote de la Mancha', author: 'Miguel de Cervantes', published: 1605, available: true},
+    {title: 'Crimen y castigo', author: 'Fyodor Dostoevsky', published: 1866, available: false}
 ];
 
 // Función para buscar libros por autor y verificar si están disponibles
-function buscarLibrosPorAutor(autorABuscar: string) {
-    let librosDelAutor = [];
-    for (let libro of libros) {
-        if (libro.autor === autorABuscar) {
-            if (libro.disponible) {
-                librosDelAutor.push(libro);
+function findBooksByAuthor(authorToSearch: string): Book[] {
+    let authorBooks: Book[] = [];
+    for (let book of books) {
+        if (book.author === authorToSearch) {
+            if (book.available) {
+                authorBooks.push(book);
             } else {
-                console.log(`El libro ${libro.titulo} no está disponible.`);
+                console.log(`El libro ${book.title} no está disponible.`);
             }
         }
     }
-    return librosDelAutor;
+    return authorBooks;
 }
 
-// Uso de la función buscarLibrosPorAutor
-let librosDeGarciaMarquez = buscarLibrosPorAutor('Gabriel García Márquez');
-console.log(librosDeGarciaMarquez);
+// Uso de la función findBooksByAuthor
+let booksOfGarciaMarquez = findBooksByAuthor('Gabriel García Márquez');
+console.log(booksOfGarciaMarquez);
