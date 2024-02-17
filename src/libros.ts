@@ -7,33 +7,33 @@
 // 3. Observe los errores en la consola y corrija cada uno de los errores hasta lograr que todo funcione correctamente.
 
 
-// Declaración de una interfaz para los libros
-interface Libro {
-    titulo: string;
-    autor: string;
-    publicado: number;
+// Declaración de un tipo para los libros
+type Book = {
+    title: string;
+    author: string;
+    published: number;
 }
 
 // Declaración de una variable para almacenar los libros
-let libros: Libro[] = [
-    {titulo: 'Cien años de soledad', autor: 'Gabriel García Márquez', publicado: 1967},
-    {titulo: '1984', autor: 'George Orwell', publicado: 1949},
-    {titulo: 'Moby-Dick', autor: 'Herman Melville', publicado: 1851}
+let books: Book[] = [
+    {title: 'Cien años de soledad', author: 'Gabriel García Márquez', published: 1967},
+    {title: '1984', author: 'George Orwell', published: 1949},
+    {title: 'Moby-Dick', author: 'Herman Melville', published: 1851}
 ];
 
 // Declaración de una variable para almacenar el autor a buscar
-const autorABuscar: number = 'Gabriel García Márquez';
+const authorToSearch: number = 'Gabriel García Márquez';
 
 // Búsqueda de libros por autor
-let librosDelAutor = [];
-for (let libro of libros) {
-    if (libro.autor === autorABuscar) {
-        librosDelAutor.push(libro);
+let authorBooks = [];
+for (let book of books) {
+    if (book.author === authorToSearch) {
+        authorBooks.push(book);
     }
 }
 
 // Impresión de los libros del autor
-console.log(librosDelAutor.titulo);
+console.log(authorBooks.title);
 
 // Cambio del autor de un libro
-libros[0].autor = 'Julio Cortázar';
+books[0].author = 'Julio Cortázar';
